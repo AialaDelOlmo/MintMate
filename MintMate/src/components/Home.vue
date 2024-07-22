@@ -4,10 +4,24 @@
             <Header></Header>
         </template>
         <template #resume>
-            <Resume></Resume>
+            <Resume
+                :label="'Ahorro total'"
+                :dateLabel="dateLabel"
+                :total-amount="100000"
+                :amount="amount"
+            >
+                <template #graphic>
+                    graphic
+                </template>
+                <template #action>
+                    action
+                </template>
+            </Resume>  
         </template>
         <template #movements>
-            <Movements></Movements>
+            <Movements
+                :movements="movements">
+        </Movements>
         </template>
     </Layout>
 </template>
@@ -16,13 +30,53 @@
     import Layout from './Layout.vue';
     import Header from './Header.vue';
     import Resume from './Resume/Index.vue';
-    import Movements from './Movements.vue';
+    import Movements from './Movements/Index.vue';
 
     export default {
         components: { 
             Layout,
             Header,
-        }
-    }
+            Resume,
+            Movements,
+        },
+
+        data() {
+            return {
+                amount: null,
+                dateLabel: "2024/07/19",
+                movements: [{
+                    id: 1,
+                    title: "Movimiento 0",
+                    description: "Salario",
+                    amount: "2500",
+                },
+                {
+                    id: 2,
+                    title: "Movimiento 1",
+                    description: "Alquiler",
+                    amount: "-700",
+                },
+                {
+                    id: 3,
+                    title: "Movimiento 3",
+                    description: "Comida",
+                    amount: "-100",
+                },
+                {
+                    id: 4,
+                    title: "Movimiento 4",
+                    description: "Estudios",
+                    amount: "-100",
+                },
+                {
+                    id: 5,
+                    title: "Movimiento 5",
+                    description: "Facturas",
+                    amount: "-300",
+                }]
+            }
+        },
+    };
+    
 
 </script>

@@ -19,7 +19,7 @@
       return new Promise((resolve) => {
         setTimeout(() => {
           resolve(import("./components/Home.vue"));
-        }, 2500);
+        }, 2000);
       });
     })
         }
