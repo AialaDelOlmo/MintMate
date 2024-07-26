@@ -11,7 +11,7 @@
                 :amount="amount"
             >
                 <template #graphic>
-                    <Graphic/>
+                    <Graphic :amounts="amounts"/>
                 </template>
                 <template #action>
                     <Action/>
@@ -47,6 +47,7 @@
         data() {
             return {
                 amount: null,
+                amounts: [100, 400, 500, 200, -400, -200, -300, 0, 300, 800],  // Example amounts for the graphic component
                 dateLabel: "2024/07/19",
                 movements: [{
                     id: 1,
