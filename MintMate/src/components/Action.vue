@@ -37,25 +37,30 @@
 </template>
 
 <script setup>
-    import { ref, defineEmits } from 'vue';
-    import Modal from './Modal.vue';
+    import { ref, defineEmits } from "vue";
+    import Modal from "./Modal.vue";
 
     const showModal = ref(false);
-    const title = ref('');
+    const title = ref("");
     const amount = ref(0);
-    const description = ref('');
-    const movementType = ref('ingreso');
+    const description = ref("");
+    const movementType = ref("ingreso");
 
-    const emit = defineEmits(['create']);
+    const emit = defineEmits(["create"]);
     const submit = () => {
       showModal.value = !showModal.value;
       emit("create", {
         title: title.value,
         description: description.value,
-        amount: movementType.value === "Ingreso" ? amount.value . amount : -amount.value,
+        amount: movementType.value === "ingreso" ? parseFloat(amount.value) : -parseFloat(amount.value),
         time: new Date(),
         id: new Date().getTime()
       });
+      title.value = "";
+      amount.value = 0;
+      description.value = "";
+      movementType.value = "ingreso";
+      
     }
 </script>   
 
